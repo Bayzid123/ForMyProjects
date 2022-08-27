@@ -1,11 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
-using System.Threading.Tasks;
 
 namespace ApiForMyProjects.ErrorHandling
 {

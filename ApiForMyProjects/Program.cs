@@ -9,10 +9,11 @@ using ApiForMyProjects.ErrorHandling;
 using System.Net;
 using ApiForMyProjects.Configurations;
 using ApiForMyProjects;
+using Microsoft.EntityFrameworkCore;
+using ApiForMyProjects.DbContexts;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 #region Configure Service
 builder.Services.AddControllers();
@@ -22,7 +23,10 @@ builder.Services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 });
 
-
+builder.Services.AddDbContext<Context>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
 if (builder.Environment.IsProduction())
 {
     builder.Services.DbProduction(builder.Configuration);
@@ -112,12 +116,12 @@ app.UseAllElasticApm(builder.Configuration);
 
 app.UseSwagger(c =>
 {
-    c.RouteTemplate = "api/swagger/{documentName}/swagger.json";
+    c.RouteTemplate = "ApiForMyProjects/swagger/{documentName}/swagger.json";
 });
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/api/swagger/v1/swagger.json", "Api");
-    c.RoutePrefix = "api/swagger";
+    c.SwaggerEndpoint("/ApiForMyProjects/swagger/v1/swagger.json", "Api");
+    c.RoutePrefix = "ApiForMyProjects/swagger";
 });
 
 app.MapControllers();

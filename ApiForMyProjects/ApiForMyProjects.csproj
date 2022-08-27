@@ -45,4 +45,9 @@
 		<PackageReference Include="LanguageExt.Core" Version="4.2.9" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="DbContexts\" />
+	  <Folder Include="Models\" />
+	</ItemGroup>
+
 </Project>

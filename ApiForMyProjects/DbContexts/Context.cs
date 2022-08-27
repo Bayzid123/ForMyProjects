@@ -17,7 +17,7 @@ namespace ApiForMyProjects.DbContexts
         {
         }
 
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<TblUser> TblUsers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -30,11 +30,12 @@ namespace ApiForMyProjects.DbContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>(entity =>
+            modelBuilder.Entity<TblUser>(entity =>
             {
-                entity.HasKey(e => e.IntUserId);
+                entity.HasKey(e => e.IntUserId)
+                    .HasName("PK_User");
 
-                entity.ToTable("User");
+                entity.ToTable("tblUser");
 
                 entity.Property(e => e.IntUserId).HasColumnName("intUserId");
 
@@ -45,6 +46,12 @@ namespace ApiForMyProjects.DbContexts
                 entity.Property(e => e.DteUpdatedAt)
                     .HasColumnType("datetime")
                     .HasColumnName("dteUpdatedAt");
+
+                entity.Property(e => e.IntCreatedBy).HasColumnName("intCreatedBy");
+
+                entity.Property(e => e.IntUpdatedBy).HasColumnName("intUpdatedBy");
+
+                entity.Property(e => e.IsActive).HasColumnName("isActive");
 
                 entity.Property(e => e.StrEmail)
                     .IsRequired()
