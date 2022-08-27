@@ -1,4 +1,4 @@
-namespace PartnerManagement.Helper
+namespace ApiForMyProjects.Helper
 {
     public static class IEnumerableExtend
     {

@@ -1,8 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
-using PartnerManagement.Helper;
+﻿using ApiForMyProjects.Helper;
+using Microsoft.Data.SqlClient;
 using System.Net;
 
-namespace PartnerManagement.ErrorHandling
+namespace ApiForMyProjects.ErrorHandling
 {
     public class ExceptionMiddleware
     {

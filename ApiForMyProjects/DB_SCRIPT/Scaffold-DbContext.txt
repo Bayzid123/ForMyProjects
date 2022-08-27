@@ -1,7 +1,7 @@
 ﻿************Scaffold*************
 
 --------- Windows -----------
-scaffold-DbContext "Data Source=DESKTOP-TFFNGL1\\SQLEXPRESS;Initial Catalog=Test;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=context;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir "Models" -ContextDir "DbContexts" -Context "Context"  -t dbo.customer, dbo.user -f
+scaffold-DbContext "Data Source=DESKTOP-TFFNGL1\\SQLEXPRESS;Initial Catalog=ForMyProjects;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=context;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir "Models" -ContextDir "DbContexts" -Context "Context"  -t dbo.user -f
 
 
 --------- Linux -------------

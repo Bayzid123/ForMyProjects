@@ -1,7 +1,7 @@
 using System.Text;
 using Microsoft.Data.SqlClient;
 
-namespace PartnerManagement.Helper
+namespace ApiForMyProjects.Helper
 {
     public static class ExceptionExtend
     {

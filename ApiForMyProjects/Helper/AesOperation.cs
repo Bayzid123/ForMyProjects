@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace PartnerManagement.Helper
+namespace ApiForMyProjects.Helper
 {
     public class AesOperation
     {

@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace PartnerManagement.Helper
+namespace ApiForMyProjects.Helper
 {
     public static class IQueryableExtend
     {

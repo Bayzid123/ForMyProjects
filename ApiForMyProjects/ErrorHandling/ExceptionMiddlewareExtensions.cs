@@ -7,7 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace PartnerManagement.ErrorHandling
+namespace ApiForMyProjects.ErrorHandling
 {
     public static class ExceptionMiddlewareExtensions
     {

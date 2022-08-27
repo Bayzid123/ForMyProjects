@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Newtonsoft.Json;
 using PartnerManagement;
 using PartnerManagement.Configurations;
-using PartnerManagement.ErrorHandling;
+using ApiForMyProjects.ErrorHandling;
 using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace PartnerManagement.Helper
+namespace ApiForMyProjects.Helper
 {
     public class PagingList<T> : List<T>
     {

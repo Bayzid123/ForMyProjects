@@ -6,7 +6,7 @@ using ApiForMyProjects.DTO;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
-namespace PartnerManagement.Helper
+namespace ApiForMyProjects.Helper
 {
     public class StoreProcedureCall
     {

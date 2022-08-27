@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace PartnerManagement.Helper
+namespace ApiForMyProjects.Helper
 {
     public class Message
     {

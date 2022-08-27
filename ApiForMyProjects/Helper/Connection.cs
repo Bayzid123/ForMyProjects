@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PartnerManagement.Helper
+namespace ApiForMyProjects.Helper
 {
     public class Connection
     {

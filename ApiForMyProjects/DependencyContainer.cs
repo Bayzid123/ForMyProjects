@@ -3,7 +3,7 @@ using Autofac;
 //using MicroRabbit.Infra.Bus;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace PartnerManagement
+namespace ApiForMyProjects
 {
     public class DependencyContainer
     {

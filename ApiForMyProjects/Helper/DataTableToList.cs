@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace PartnerManagement.Helper
+namespace ApiForMyProjects.Helper
 {
     public class DataTableToList
     {

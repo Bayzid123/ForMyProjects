@@ -9,15 +9,15 @@ public static class DB
 
         //services.AddDbContext<Context>(options => options.UseSqlServer(connection), ServiceLifetime.Transient);
 
-        PartnerManagement.Helper.Connection.iBOS = connection;
+        ApiForMyProjects.Helper.Connection.iBOS = connection;
     }
 
     public static void DbDevelopment(this IServiceCollection services, IConfiguration Configuration)
     {
         //services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("Development")), ServiceLifetime.Transient);
 
-       // services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("Development")), ServiceLifetime.Transient);
+        // services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("Development")), ServiceLifetime.Transient);
 
-        PartnerManagement.Helper.Connection.iBOS = Configuration.GetConnectionString("Development");
+        ApiForMyProjects.Helper.Connection.iBOS = Configuration.GetConnectionString("Development");
     }
 }
