@@ -5,10 +5,10 @@ using Elastic.Apm.NetCoreAll;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Newtonsoft.Json;
-using PartnerManagement;
-using PartnerManagement.Configurations;
 using ApiForMyProjects.ErrorHandling;
 using System.Net;
+using ApiForMyProjects.Configurations;
+using ApiForMyProjects;
 
 var builder = WebApplication.CreateBuilder(args);
 

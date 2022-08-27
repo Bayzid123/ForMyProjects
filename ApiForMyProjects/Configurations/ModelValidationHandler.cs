@@ -1,8 +1,8 @@
 using System.Net;
+using ApiForMyProjects.Helper;
 using Microsoft.AspNetCore.Mvc;
-using PartnerManagement.Helper;
 
-namespace PartnerManagement.Configurations
+namespace ApiForMyProjects.Configurations
 {
     public static class ModelValidationHandler
     {

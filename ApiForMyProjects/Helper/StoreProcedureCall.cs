@@ -12,7 +12,7 @@ namespace ApiForMyProjects.Helper
     {
         // public readonly Context _contextW;
         // public readonly Context _contextR;
-        private static string _connection = Connection.iBOS;
+        private static string _connection = Connection.test;
         public StoreProcedureCall()
         {
             // _contextW = new Context();

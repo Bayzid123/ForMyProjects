@@ -9,8 +9,7 @@ namespace ApiForMyProjects.Helper
 {
     public class Connection
     {
-        public static string iBOS { get; set; }       
-        // public static string Madina_Apon { get; set; }
+        public static string test { get; set; }       
 
         private static string GetConnection()
         {

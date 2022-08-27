@@ -9,7 +9,7 @@ public static class DB
 
         //services.AddDbContext<Context>(options => options.UseSqlServer(connection), ServiceLifetime.Transient);
 
-        ApiForMyProjects.Helper.Connection.iBOS = connection;
+        ApiForMyProjects.Helper.Connection.test = connection;
     }
 
     public static void DbDevelopment(this IServiceCollection services, IConfiguration Configuration)
@@ -18,6 +18,6 @@ public static class DB
 
         // services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("Development")), ServiceLifetime.Transient);
 
-        ApiForMyProjects.Helper.Connection.iBOS = Configuration.GetConnectionString("Development");
+        ApiForMyProjects.Helper.Connection.test = Configuration.GetConnectionString("Development");
     }
 }
