@@ -85,6 +85,7 @@ builder.Services.Configure<IpRateLimitPolicies>(builder.Configuration.GetSection
 // inject counter and rules stores
 builder.Services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
 builder.Services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+builder.Services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
 
 // Add framework services.
 builder.Services.AddMvc();
