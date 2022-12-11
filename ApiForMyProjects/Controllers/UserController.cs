@@ -47,6 +47,21 @@ namespace ApiForMyProjects.Controllers
                 throw;
             }
         }
+
+        [HttpGet]
+        [Route("GetTrackList")]
+        [SwaggerOperation(Description = "Example {DTO}")]
+        public async Task<IActionResult> GetTrackList(string search)
+        {
+            try
+            {
+                return Ok(await _IRepository.GetTrackList(search));
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         #endregion
 
     }

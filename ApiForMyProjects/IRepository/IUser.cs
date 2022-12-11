@@ -10,6 +10,7 @@ namespace ApiForMyProjects.IRepository
 
         #region AdPlay Written Test
         public Task<Result<MessageHelper>> SaveTrack(SaveTrackDTO obj);
+        public Task<List<SaveTrackDTO>> GetTrackList(string search);
         #endregion
     }
 }

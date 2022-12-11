@@ -5,6 +5,7 @@ using ApiForMyProjects.IRepository;
 using ApiForMyProjects.Models;
 using DocumentFormat.OpenXml.Wordprocessing;
 using LanguageExt.Common;
+using MailKit.Search;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
@@ -60,7 +61,7 @@ namespace ApiForMyProjects.Repository
         {
             try
             {
-                TblTrack dataParent = await _context.TblTracks.Where(x => x.IntTrackId == obj.IntTrackId 
+                TblTrack dataParent = await _context.TblTracks.Where(x => x.IntTrackId == obj.IntTrackId
                 && x.IsActive == true).FirstOrDefaultAsync();
 
                 var msg = new MessageHelper();
@@ -101,6 +102,22 @@ namespace ApiForMyProjects.Repository
             {
                 throw;
             }
+        }
+
+        public async Task<List<SaveTrackDTO>> GetTrackList(string search)
+        {
+            var data = await (from t in _context.TblTracks
+                              where t.IsActive == true && (string.IsNullOrWhiteSpace(search) || t.StrTrackName.Contains(search))
+                              select new SaveTrackDTO
+                              {
+                                  IntTrackId = t.IntTrackId,
+                                  StrTrackName = t.StrTrackName,
+                                  IntAlbumId = t.IntAlbumId,
+                                  StrComposer = t.StrComposer,
+                                  IsActive = t.IsActive,
+                                  DteCreatedAt = t.DteCreatedAt,
+                              }).ToListAsync();
+            return data;
         }
 
         #endregion
