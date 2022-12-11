@@ -62,6 +62,21 @@ namespace ApiForMyProjects.Controllers
                 throw;
             }
         }
+
+        [HttpPut]
+        [Route("DeleteTrack")]
+        [SwaggerOperation(Description = "Example {DTO}")]
+        public async Task<IActionResult> DeleteTrack(long id)
+        {
+            try
+            {
+                return Ok(await _IRepository.DeleteTrack(id));
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         #endregion
 
     }

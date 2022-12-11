@@ -57,7 +57,9 @@ namespace ApiForMyProjects.Repository
 
         #region AdPlay Written Test
 
-        public async Task<Result<MessageHelper>> SaveTrack(SaveTrackDTO obj)
+        //Create and Edit Track
+
+        public async Task<MessageHelper> SaveTrack(SaveTrackDTO obj)
         {
             try
             {
@@ -104,6 +106,8 @@ namespace ApiForMyProjects.Repository
             }
         }
 
+
+        // Get Track List by searching Track Name
         public async Task<List<SaveTrackDTO>> GetTrackList(string search)
         {
             var data = await (from t in _context.TblTracks
@@ -119,6 +123,46 @@ namespace ApiForMyProjects.Repository
                                   DteCreatedAt = t.DteCreatedAt,
                               }).ToListAsync();
             return data;
+        }
+
+
+        // Delete Track 
+
+        public async Task<MessageHelper> DeleteTrack(long id)
+        {
+            try
+            {
+                // Delete from database
+                var msg = new MessageHelper();
+                var deleteTrack = await _context.TblTracks.Where(x => x.IntTrackId == id).FirstOrDefaultAsync();
+                if (deleteTrack == null)
+                    throw new Exception("Track Not Found");
+
+                _context.TblTracks.Remove(deleteTrack);
+                await _context.SaveChangesAsync();
+
+                msg.Message = "Deleted Successfully";
+                msg.statuscode = 200;
+                return msg;
+
+
+
+                // For Delete we just inActive Data from our database table,, so we can update just isActive Field.
+
+
+                //var updateTrack = await _context.TblTracks.Where(x => x.IntTrackId == id).FirstOrDefaultAsync();
+                //if (updateTrack == null)
+                //    throw new Exception("Track Not Found");
+
+                //updateTrack.IsActive = false;
+
+                //_context.TblTracks.Update(updateTrack);
+                //await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         #endregion

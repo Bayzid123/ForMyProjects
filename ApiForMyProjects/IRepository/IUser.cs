@@ -9,8 +9,10 @@ namespace ApiForMyProjects.IRepository
         public Task<Result<MessageHelper>> CreateUser(CreateUserDTO objCreate);
 
         #region AdPlay Written Test
-        public Task<Result<MessageHelper>> SaveTrack(SaveTrackDTO obj);
+        public Task<MessageHelper> SaveTrack(SaveTrackDTO obj);
         public Task<List<SaveTrackDTO>> GetTrackList(string search);
+
+        public Task<MessageHelper> DeleteTrack(long id);
         #endregion
     }
 }
