@@ -3,7 +3,9 @@ using ApiForMyProjects.DTO;
 using ApiForMyProjects.Helper;
 using ApiForMyProjects.IRepository;
 using ApiForMyProjects.Models;
+using DocumentFormat.OpenXml.Wordprocessing;
 using LanguageExt.Common;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace ApiForMyProjects.Repository
@@ -52,7 +54,54 @@ namespace ApiForMyProjects.Repository
             }
         }
 
-        #region MyRegion
+        #region AdPlay Written Test
+
+        public async Task<Result<MessageHelper>> SaveTrack(SaveTrackDTO obj)
+        {
+            try
+            {
+                TblTrack dataParent = await _context.TblTracks.Where(x => x.IntTrackId == obj.IntTrackId 
+                && x.IsActive == true).FirstOrDefaultAsync();
+
+                var msg = new MessageHelper();
+
+                if (dataParent == null)
+                {
+                    TblTrack data = new TblTrack
+                    {
+                        IntTrackId = obj.IntTrackId,
+                        StrTrackName = obj.StrTrackName,
+                        IntAlbumId = obj.IntAlbumId,
+                        StrComposer = obj.StrComposer,
+                        IsActive = true,
+                        DteCreatedAt = DateTime.Now,
+                    };
+                    await _context.TblTracks.AddAsync(data);
+                    await _context.SaveChangesAsync();
+
+                    msg.Message = "Created Successfully";
+                    msg.statuscode = 200;
+                    return msg;
+                }
+
+                dataParent.StrTrackName = obj.StrTrackName;
+                dataParent.IntAlbumId = obj.IntAlbumId;
+                dataParent.StrComposer = obj.StrComposer;
+                dataParent.IsActive = obj.IsActive;
+                dataParent.DteCreatedAt = obj.DteCreatedAt;
+
+                _context.TblTracks.Update(dataParent);
+                await _context.SaveChangesAsync();
+
+                msg.Message = "Updated Successfully";
+                msg.statuscode = 200;
+                return msg;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
         #endregion
 

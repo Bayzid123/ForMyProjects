@@ -31,5 +31,23 @@ namespace ApiForMyProjects.Controllers
             }
         }
 
+
+        #region AdPlay Written Test
+        [HttpPost]
+        [Route("SaveTrack")]
+        [SwaggerOperation(Description = "Example {DTO}")]
+        public async Task<IActionResult> SaveTrack(SaveTrackDTO obj)
+        {
+            try
+            {
+                return Ok(await _IRepository.SaveTrack(obj));
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
+
     }
 }
