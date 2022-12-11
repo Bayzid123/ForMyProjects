@@ -108,6 +108,7 @@ namespace ApiForMyProjects.Repository
         {
             var data = await (from t in _context.TblTracks
                               where t.IsActive == true && (string.IsNullOrWhiteSpace(search) || t.StrTrackName.Contains(search))
+                              orderby t.IntTrackId descending
                               select new SaveTrackDTO
                               {
                                   IntTrackId = t.IntTrackId,
